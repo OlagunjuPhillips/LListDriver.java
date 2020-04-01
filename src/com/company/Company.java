@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 
 public class Company {
-    ArrayList<Employee> companyEmployees;
+    private ArrayList<Employee> companyEmployees;
 
     public Company(ArrayList<Employee> companyEmployees){
         this.companyEmployees = companyEmployees;

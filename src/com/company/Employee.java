@@ -3,9 +3,9 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Employee {
-    String firstName;
-    LocalDate hireDate;
-    Double salary;
+    private String firstName;
+    private LocalDate hireDate;
+    private Double salary;
 
     public Employee(String firstName, LocalDate hireDate, Double salary){
         this.firstName = firstName;
@@ -14,7 +14,7 @@ public class Employee {
     }
 
     public String toString(){
-        return "Name of Employee: " +firstName+"\t Date of Hire: " + hireDate + "\t Salary: " + salary;
+        return "(Name of Employee: " + firstName+ ", Date of Hire: " + hireDate + ", Salary: " + salary+")";
     }
 
     public String getName(){
@@ -58,8 +58,14 @@ public class Employee {
             int day = rand.nextInt(31) + 1;
             if (month == 4 &&  day > 30 || month == 6 &&  day > 30 || month == 9 &&  day > 30 || month == 11 &&  day > 30){
                 day -=  1;
-            }else if (month == 2 && day > 28){
-                day -= 2;
+            }else if (month == 2){
+                if((yearGap + beginYear) % 4 == 0 && day > 29){
+                    day -= 2;
+                }else{
+                    if(day > 28){
+                        day -= 3;
+                    }
+                }
             }
 
             LocalDate hireDate = LocalDate.of(yearGap + beginYear,  month, day);
