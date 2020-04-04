@@ -4,6 +4,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// TODO Phillips, you didn't have to create this LListMain.main() file.  You can add a main() function
+// to any class.  So you can have a driver (like Main.java) in your IDE and also have other main() functions.
+// In IntelliJ, you can add this other main() by clicking the green arrow next to the main() function header.
+// Or you can run any file that has a main() from the command line like
+//        javac LList.java
+//        java LList
 public class LListMain {
     public static void main(String[] args){
         Scanner console = new Scanner(System.in);
@@ -11,6 +17,7 @@ public class LListMain {
         System.out.println("Welcome to Company Linked List.");
         System.out.println();
 
+        // TODO why prompt when the assignment sheet says to populate with 11 employee objects
         System.out.print("How many employees are in the company: ");
         int numberOfEmployees = console.nextInt();
         System.out.println();

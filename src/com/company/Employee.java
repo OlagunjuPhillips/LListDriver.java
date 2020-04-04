@@ -33,14 +33,17 @@ public class Employee {
         this.salary = salary;
     }
 
-
+    // TODO maybe, this method could be in the Company class and return a Companuy object
+    //  rather than being in the Employee class and returning an ArrayList of Employee objects
     public static ArrayList<Employee> generateRandomEmployees(int numberOfEmployees){
         ArrayList<Employee> employeeList = new ArrayList<>();
 
         Scanner console = new Scanner(System.in);
         Random  rand = new Random();
 
+        // TODO this should be a constant so static and final
         String[] names = {"John", "Mike", "Ronald", "Galosh", "Rockford", "Daniel", "Tom", "Phil", "Rock", "James"};
+
         System.out.println("What year did you start hiring: ");
         int beginYear = console.nextInt();
         System.out.println("What year did you stop  hiring: ");
@@ -53,6 +56,8 @@ public class Employee {
             String name = names[nameIndex];
             int salary = rand.nextInt(highestAmount);
 
+            // TODO this should be a generateRandomDate() method.
+            // TODO I suspect java.time.LocalTime  has a much easier way to add a random number to a date
             int yearGap = rand.nextInt(endYear - beginYear);
             int month = rand.nextInt(12) + 1;
             int day = rand.nextInt(31) + 1;
@@ -64,8 +69,10 @@ public class Employee {
 
             LocalDate hireDate = LocalDate.of(yearGap + beginYear,  month, day);
 
+            // TODO combine these two statements into
+            // TODO it is more descriptive to cast than to multiply by 1.0
+            // employeeList.add( new Employee(name, hireDate, (double) salary );
             Employee newEmployee = new Employee(name, hireDate, salary*1.0);
-
             employeeList.add(newEmployee);
 
         }

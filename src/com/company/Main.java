@@ -10,6 +10,7 @@ public class Main {
         System.out.println("Welcome to Company.");
         System.out.println();
 
+        // TODO odd, the assignment sheet says to add 11 random employees but you require user input
         System.out.print("How many employees do you want in the company: ");
         int numberOfEmployees = console.nextInt();
 

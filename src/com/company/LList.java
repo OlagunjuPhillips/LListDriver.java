@@ -9,6 +9,9 @@ public class LList {
     private LList next;
 
     public LList(Employee employee){
+
+        // TODO this is one of the common Java gotchas
+        //  Don't assign reference parameters without using new
         this.employee = employee;
         this.next = null;
     }
@@ -17,12 +20,14 @@ public class LList {
         return employee+" ----> "+next;
     }
 
+    // TODO as practice, re-write this as a recursive method
     public LList addToHead(Employee  employee){
         LList first = new LList(employee);
         first.next = this;
         return first;
     }
 
+    // TODO as practice, re-write this as a recursive method
     public Employee get(int index){
         LList current = this;
         for(int i = 0; i < index; i++){
@@ -31,6 +36,7 @@ public class LList {
         return current.employee;
     }
 
+    // TODO as practice, re-write this as a recursive method
     public int size(){
         LList  current = this;
         int count = 0;
@@ -42,8 +48,8 @@ public class LList {
     }
 
 
-
-
+    // TODO good job, you used static properly
+    // TODO see my many comments in Employees.generateRandomEmployees() to see how to improve this code
     public static LList populateLinkedListWithEmployees(int numberOfEmployees){
 
         Scanner console = new Scanner(System.in);
@@ -82,6 +88,9 @@ public class LList {
             name = names[nameIndex];
             salary = rand.nextInt(highestAmount);
 
+            // TODO YUCK!!!  Every time you find yourself repeating code (like the copy-and-paste) you did from
+            // your above code, you should convert that code into a function/method.
+            // Programmers call this DRY (Don't Repeat Yourself).
             yearGap = rand.nextInt(endYear - beginYear);
             month = rand.nextInt(12) + 1;
             day = rand.nextInt(31) + 1;
